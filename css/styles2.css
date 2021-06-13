@@ -1,3 +1,11 @@
 header div a.btn-primary {
     background-color: transparent;
 }
+
+/* div#clientdata, div#auto, div#sposob_zaplaty{
+    text-align: center;
+} */
+
+.czerwone {
+    color: red;
+}
