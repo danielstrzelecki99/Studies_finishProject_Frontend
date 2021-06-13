@@ -195,6 +195,127 @@
                 <h2 class="section-heading text-uppercase">Konfigurator</h2>
                 <h3 class="section-subheading text-muted">Wypełnij formularz, aby zamówić swoje wymarzone auto</h3>
             </div>
+            <form action="mailto:daniel.strzelecki@pollub.edu.pl" onsubmit="return sprawdz()" method="POST">
+                <div id="clientdata">
+                    <h4>Dane klienta:</h4>
+                    <table>
+                        <tr>
+                            <td class="first"><label for="lname">Imię: </label> </td>
+                            <td><input type="text" id="lname" name="lname" />
+                                <span id="im_error" class="czerwone"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="first"><label for="lname">Nazwisko: </label> </td>
+                            <td><input type="text" id="lsurname" name="lsurname" />
+                                <span id="nazw_error" class="czerwone"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="first"><label for="age">Numer telefonu: </label></td>
+                            <td><input type="number" id="age" name="age" step="1" />
+                                <span id="wiek_error" class="czerwone"></span><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="first"><label for="country">Państwo: </label> </td>
+                            <td>
+                                <select name="country" id="country">
+                                    <option value="Polska">Polska</option>
+                                    <option value="Niemcy">Niemcy</option>
+                                    <option value="Wielka Brytania">Wielka Brytania</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="first"><label for="adress_email">Adres e-mail: </label> </td>
+                            <td><input type="text" id="adress_email" name="adress_email" placeholder="example@com.pl">
+                                <span id="email_error" class="czerwone"></span><br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="auto">
+                    <br>
+                    <h4>Dane auta:</h4>
+                    <table>
+                        <tr>
+                            <td><label for="markamodel">Marka i model: </label> </td>
+                            <td><select name="markamodel" id="markamodel">
+                                    <option value="m5">BMW M5</option>
+                                    <option value="f250">Shelby F250</option>
+                                    <option value="continentalgt">Bentley Continental GT</option>
+                                    <option value="gklasa">Mercedes-Benz Klasa G</option>
+                                    <option value="aventador">Lamborghini Aventador</option>
+                                    <option value="911turbo">Porsche 911 Turbo</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="typ">Typ: </label> </td>
+                            <td><select name="country" id="country">
+                                    <option value="sedan">Sedan</option>
+                                    <option value="coupe">Coupe</option>
+                                    <option value="terenowy">Terenowy</option>
+                                    <option value="supersamochod">Supersamochód</option>
+                                    <option value="kabriolet">Kabriolet</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="silnik">Silnik: </label></td>
+                            <td><select name="country" id="country">
+                                    <option value="600">4.4l V8 600KM</option>
+                                    <option value="650">4.4l V8 650KM</option>
+                                    <option value="671">7.3l V8 671KM</option>
+                                    <option value="560">6.0l W12 560KM</option>
+                                    <option value="422">4.0l V8 422KM</option>
+                                    <option value="585">4.0l V8 585KM</option>
+                                    <option value="700">6.5l V12 700KM</option>
+                                    <option value="580">3.7l B6 580KM</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="kolor">Kolor: </label> </td>
+                            <td>
+                                <select name="kolor" id="kolor">
+                                    <option value="czarny">czarny</option>
+                                    <option value="biały">biały</option>
+                                    <option value="czerwony">czerwony</option>
+                                    <option value="granatowy">granatowy</option>
+                                    <option value="zielony">zielony</option>
+                                </select><br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label for="kolor">Dodatkowe wyposażenie: </label> </td>
+                            <td>
+                                <input type="checkbox" name="audio" id="audio" value="audio"> <label for="audio">System
+                                    Premium Audio</label><br>
+                                <input type="checkbox" name="adaptacyjn_ezawieszenie" id="adaptacyjne_zawieszenie"
+                                    value="adaptacyjne_zawieszenie"> <label for="adaptacyjen_zawieszenie">Adaptacyjne
+                                    zawieszenie</label><br>
+                                <input type="checkbox" name="kamery_parkowania" id="kamery_parkowania"
+                                    value="kamery_parkowania"><label for="kamery_parkowania">Kamery parkowania 360
+                                    stopni</label><br>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="sposob_zaplaty">
+                    <h4>Sposób zapłaty:</h4>
+                    <input type="radio" name="payment-method" id="gotówka" value="gotówka" checked> <label
+                        for="eurocard">Gotówka</label>
+                    <input type="radio" name="payment-method" id="przelew" value="przelew"> <label
+                        for="przelew">Przelew</label>
+                    <input type="radio" name="payment-method" id="raty" value="raty"> <label for="raty">Raty</label>
+                </div>
+                <div id="sendrest">
+                    <input type="submit" value="Wyślij">
+                    <input type="reset" value="Anuluj">
+                </div>
+            </form>
             <!-- <ul class="timeline">
                 <li>
                     <div class="timeline-image"><img class="rounded-circle img-fluid" src="assets/img/about/1.jpg"
