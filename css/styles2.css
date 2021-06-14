@@ -9,3 +9,55 @@ header div a.btn-primary {
 .czerwone {
     color: red;
 }
+
+section.page-section td,
+th {
+    padding: 10px;
+}
+
+.py-5 a {
+    color: gray;
+    font-size: 80px;
+    transition: .5s;
+}
+
+.py-5 a.fb:hover {
+    color: #3b5998;
+}
+
+.py-5 a.ig:hover {
+    color: #e95950;
+
+}
+
+.py-5 a.tw:hover {
+    color: #00acee;
+
+}
+
+.py-5 a.yt:hover {
+    color: #c4302b;
+
+}
+
+#contactForm {
+    color: white;
+}
+
+@media (max-width: 490px) {
+    #team .container {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 420px) {
+    #team .container {
+        font-size: .7rem;
+    }
+}
+
+@media (max-width: 390px) {
+    #team .container {
+        font-size: .5rem;
+    }
+}
