@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="utf-8" />
@@ -77,7 +77,6 @@
                 <div class="col-md-4">
                     <span class="fa-stack fa-4x">
                         <i class="fas fa-circle fa-stack-2x"></i>
-                        <!-- <i class="fas fa-lock fa-stack-1x fa-inverse"></i> -->
                         <i class="fas fa-piggy-bank fa-stack-1x fa-inverse"></i>
                     </span>
                     <h4 class="my-3">Wygodne kredytowanie</h4>
@@ -195,7 +194,7 @@
                 <h2 class="section-heading text-uppercase">Konfigurator</h2>
                 <h3 class="section-subheading text-muted">Wypełnij formularz, aby zamówić swoje wymarzone auto</h3>
             </div>
-            <form action="mailto:daniel.strzelecki@pollub.edu.pl" onsubmit="return sprawdz()" method="POST">
+            <form onsubmit="return sprawdz()">
                 <div id="clientdata">
                     <h4>Dane klienta:</h4>
                     <table>
@@ -314,6 +313,8 @@
                 <div id="sendrest">
                     <input type="submit" value="Zamów">
                     <input type="reset" value="Anuluj">
+                    <input id="edytuj" type="submit" value="Edytuj" style="display: none">
+                    <input id="anuluj" type="reset" value="Anuluj" style="display: none">
                 </div>
             </form>
             <!-- <ul class="timeline">
@@ -398,6 +399,7 @@
                 <h2 class="section-heading text-uppercase">Zamówienia</h2>
                 <h3 class="section-subheading text-muted">Poniżej możesz sprawdzić jakie auta zamówiłeś</h3>
             </div>
+            <div id="list"></div>
             <!-- <div class="row">
                 <div class="col-lg-4">
                     <div class="team-member">

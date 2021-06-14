@@ -50,7 +50,7 @@ window.addEventListener('DOMContentLoaded', event => {
             }
         });
     });
-
+    pokazDane();
     //===============================================================================
 });
 
@@ -141,27 +141,59 @@ function zapiszDane() {
     if (orders === null) orders = [];
     orders.push(item);
     localStorage.setItem('orders', JSON.stringify(orders));
+    pokazDane();
 }
 
-// function showProducts() {
-//     var products = JSON.parse(localStorage.getItem('products'));
-//     var el = document.getElementById('list');
-//     var str = "<h2>Koszyk:</h2>";
-//     if (products === null || products.length == 0) el.innerHTML = str + "<p>koszyk jest pusty</p>";
-//     else {
-//         str += '<table><thead><tr><th>Nazwa</th><th>Cena</th><th>Kolor</th><th>Ilość</th></tr></thead><tbody>'
-//         for (i = 0; i < products.length; i++) {
-//             str += '<tr>';
-//             str += "<td>" + products[i].name + "</td>";
-//             str += "<td>" + products[i].price + "</td>";
-//             str += "<td>" + products[i].color + "</td>";
-//             str += "<td>" + products[i].quantity + "</td>";
-//             str += "<td><button onclick='deleteProduct(" + i + ")'>Usuń</button></td>";
-//             str += "<td><button onclick='editProduct(" + i + ")'>Edytuj</button></td>";
-//             str += "<td><p id='edit" + i + "'></p></td>"
-//             str += "</tr>";
-//         }
-//         str += '</tbody></table>';
-//         el.innerHTML = str;
-//     }
-// }
+function pokazDane() {
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var el = document.getElementById('list');
+    var str = "";
+    if (orders === null || orders.length == 0) el.innerHTML = str + "<p>Nie zamówiłeś jeszcze żadnego auta</p>";
+    else {
+        str += '<table>'
+        for (i = 0; i < orders.length; i++) {
+            str += '<tr>';
+            str += "<td>" + orders[i].car + "</td>";
+            str += "<td>" + orders[i].cartype + "</td>";
+            str += "<td>" + orders[i].engine + "</td>";
+            str += "<td>" + orders[i].color + "</td>";
+            str += "<td><button onclick='deleteProduct(" + i + ")'><i class='fas fa-trash-alt'></i></button></td>";
+            str += "<td><button onclick='edytujDane(" + i + ")'><a href='#about'><i class='fas fa-edit'></i></a></button></td>";
+            str += "<td><p id='edit" + i + "'></p></td>"
+            str += "</tr>";
+        }
+        str += '</tbody></table>';
+        el.innerHTML = str;
+    }
+}
+
+function edytujDane(i) {
+    var orders = JSON.parse(localStorage.getItem('orders'));
+    var order = orders[i];
+    document.getElementById("lname").value = order.name;
+    document.getElementById("lsurname").value = order.surname;
+    document.getElementById("number").value = order.number;
+    document.getElementById("country").value = order.country;
+    document.getElementById("adress_email").value = order.mail;
+    document.getElementById("markamodel").value = order.car;
+    document.getElementById("typ").value = order.cartype;
+    document.getElementById("silnik").value = order.engine;
+    document.getElementById("kolor").value = order.color;
+    // item.equipment = zaznaczone_boxy();
+    let obiekty = document.getElementsByName("payment-method");
+    for (let i = 0; i < obiekty.length; i++) {
+        if (order.payment == obiekty[i].value) {
+            obiekty[i].checked = true;
+        }
+    }
+    // product.name = document.getElementById("name").value;
+    // product.price = document.getElementById("price").value;
+    // product.color = document.getElementById("color").value;
+    // product.quantity = document.getElementById("quantity").value;
+    // products[i] = product;
+    // localStorage.setItem('products', JSON.stringify(products));
+    // modify = false;
+    // showProducts();
+    // clearInputs();
+    // document.getElementById("edit" + i).innerHTML = "";
+}
