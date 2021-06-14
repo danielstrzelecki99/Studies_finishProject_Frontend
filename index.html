@@ -23,7 +23,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand" href="#page-top"><img src="assets/img/Luxury Cars.png" alt="..." /></a>
+            <a class="navbar-brand" href="#page-top"><img src="assets/img/Luxury_Cars.png" alt="..." /></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
@@ -90,7 +90,6 @@
         <div class="container">
             <div class="text-center">
                 <h2 class="section-heading text-uppercase">Nasze auta</h2>
-                <h3 class="section-subheading text-muted"></h3>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-sm-6 mb-4">
@@ -238,38 +237,40 @@
                     <table>
                         <tr>
                             <td><label for="markamodel">Marka i model: </label> </td>
-                            <td><select name="markamodel" id="markamodel">
+                            <td><select name="markamodel" id="markamodel" onchange="uzupelnianieTypow()">
+                                    <option value="---">---</option>
                                     <option value="BMW M5">BMW M5</option>
                                     <option value="Shelby F250">Shelby F250</option>
                                     <option value="Bentley Continental GT">Bentley Continental GT</option>
                                     <option value="Mercedes-Benz Klasa G">Mercedes-Benz Klasa G</option>
                                     <option value="Lamborghini Aventador">Lamborghini Aventador</option>
                                     <option value="Porsche 911 Turbo">Porsche 911 Turbo</option>
-                                </select><br>
+                                </select>
+                                <span id="markamodelerror" class="czerwone"></span><br>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="typ">Typ: </label> </td>
                             <td><select name="typ" id="typ">
-                                    <option value="Sedan">Sedan</option>
+                                    <!-- <option value="Sedan">Sedan</option>
                                     <option value="Coupe">Coupe</option>
                                     <option value="Terenowy">Terenowy</option>
                                     <option value="Supersamochod">Supersamochód</option>
-                                    <option value="Kabriolet">Kabriolet</option>
+                                    <option value="Kabriolet">Kabriolet</option> -->
                                 </select><br>
                             </td>
                         </tr>
                         <tr>
                             <td><label for="silnik">Silnik: </label></td>
                             <td><select name="silnik" id="silnik">
-                                    <option value="4.4l V8 600KM">4.4l V8 600KM</option>
+                                    <!-- <option value="4.4l V8 600KM">4.4l V8 600KM</option>
                                     <option value="4.4l V8 650KM">4.4l V8 650KM</option>
                                     <option value="7.3l V8 671KM">7.3l V8 671KM</option>
                                     <option value="6.0l W12 560KM">6.0l W12 560KM</option>
                                     <option value="4.0l V8 422KM">4.0l V8 422KM</option>
                                     <option value="4.0l V8 585KM">4.0l V8 585KM</option>
                                     <option value="6.5l V12 700KM">6.5l V12 700KM</option>
-                                    <option value="3.7l B6 580KM">3.7l B6 580KM</option>
+                                    <option value="3.7l B6 580KM">3.7l B6 580KM</option> -->
                                 </select><br>
                             </td>
                         </tr>
@@ -322,6 +323,7 @@
                 <h3 class="section-subheading text-muted">Poniżej możesz sprawdzić jakie auta zamówiłeś</h3>
             </div>
             <div id="list"></div>
+        </div>
     </section>
     <div class="py-5">
         <div class="container">
@@ -369,7 +371,6 @@
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </section>
     <!-- Footer-->

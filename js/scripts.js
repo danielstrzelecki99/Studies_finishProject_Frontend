@@ -107,6 +107,11 @@ function sprawdz() {
         document.getElementById("email_error").innerHTML =
             "Wpisz poprawnie email!";
     } else document.getElementById("email_error").innerHTML = "";
+    if (document.getElementById("markamodel").value == "---") {
+        ok = false;
+        document.getElementById("markamodelerror").innerHTML =
+            "Wybierz auto!";
+    } else document.getElementById("markamodelerror").innerHTML = "";
 
     if (ok) {
         let komunikat = "Dane z wypełnionego przez Ciebie formularza: " +
@@ -233,16 +238,6 @@ function edytujDane(i) {
     }
     modify = true;
     document.getElementById("sendrest").innerHTML = '<input onclick="zapiszDaneI(' + i + ')"id="edytuj" type="submit" value="Edytuj">'
-    // product.name = document.getElementById("name").value;
-    // product.price = document.getElementById("price").value;
-    // product.color = document.getElementById("color").value;
-    // product.quantity = document.getElementById("quantity").value;
-    // products[i] = product;
-    // localStorage.setItem('products', JSON.stringify(products));
-    // modify = false;
-    // showProducts();
-    // clearInputs();
-    // document.getElementById("edit" + i).innerHTML = "";
 }
 
 function usunDane(i) {
@@ -263,4 +258,108 @@ function showMap() {
     var mapa = new
     google.maps.Map(document.getElementById("mapka"),
         opcjeMapy);
+}
+
+function uzupelnianieTypow() {
+    var value = document.getElementById("markamodel").value;
+    if (value == "BMW M5") {
+        fetch("http://localhost/projekt/dane/bmwtyp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/bmwsilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else if (value == "Shelby F250") {
+        fetch("http://localhost/projekt/dane/shelbytyp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/shelbysilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else if (value == "Bentley Continental GT") {
+        fetch("http://localhost/projekt/dane/bentleytyp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/bentleysilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else if (value == "Mercedes-Benz Klasa G") {
+        fetch("http://localhost/projekt/dane/mercedestyp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/mercedessilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else if (value == "Lamborghini Aventador") {
+        fetch("http://localhost/projekt/dane/lamborghinityp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/lamborghinisilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else if (value == "Porsche 911 Turbo") {
+        fetch("http://localhost/projekt/dane/porschetyp.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+            })
+        fetch("http://localhost/projekt/dane/porschesilnik.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    } else {
+        fetch("http://localhost/projekt/dane/pusty.txt")
+            .then(response => {
+                return response.text();
+            })
+            .then(dane => {
+                document.getElementById("typ").innerHTML = dane;
+                document.getElementById("silnik").innerHTML = dane;
+            })
+    }
 }
